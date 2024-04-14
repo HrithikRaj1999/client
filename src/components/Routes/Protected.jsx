@@ -6,7 +6,7 @@ import RedirectingPage from "../RedirectingPage";
 
 // note admin can access user and admin both dashboards
 
-export const Protected = ({ checkFor }) => {
+const Protected = ({ checkFor }) => {
   const [permitted, setPermitted] = useState(false);
   const [auth] = useAuth();
   const [path, setPath] = useState();
@@ -26,7 +26,7 @@ export const Protected = ({ checkFor }) => {
       if (res.data.ok) {
         setPermitted(true);
       } else {
-        setPath("/login"); 
+        setPath("/login");
         setPermitted(false);
       }
     }
@@ -39,3 +39,5 @@ export const Protected = ({ checkFor }) => {
   }, [auth]);
   return permitted ? <Outlet /> : <RedirectingPage path={path} />;
 };
+
+export default Protected;

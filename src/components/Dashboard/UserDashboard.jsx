@@ -1,8 +1,9 @@
 import React from "react";
 import { useAuth } from "../../context/auth";
 import UserMenu from "../User/UserMenu";
+import { Outlet } from "react-router-dom";
 
-const UserDashboard = ({ children }) => {
+const UserDashboard = () => {
   const [auth] = useAuth();
   return (
     <div className="flex m-2">
@@ -11,7 +12,7 @@ const UserDashboard = ({ children }) => {
       </div>
 
       <div className="w-9/12">
-        {children || <h1>Hello, {auth.user.name}</h1>}
+        <Outlet />
       </div>
     </div>
   );

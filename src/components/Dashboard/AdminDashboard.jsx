@@ -1,8 +1,9 @@
 import React from "react";
 import AdminMenu from "../Admin/AdminMenu";
 import { useAuth } from "../../context/auth";
+import { Outlet } from "react-router-dom";
 
-const AdminDashBoard = ({ children }) => {
+const AdminDashboard = ({ children }) => {
   const [auth] = useAuth();
   return (
     <div className="flex m-2">
@@ -11,10 +12,10 @@ const AdminDashBoard = ({ children }) => {
       </div>
 
       <div className="w-9/12">
-        {children || <h1>Hello, {auth.user.name}</h1>}
+        <Outlet />
       </div>
     </div>
   );
 };
 
-export default AdminDashBoard;
+export default AdminDashboard;

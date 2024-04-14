@@ -4,7 +4,7 @@ import { Button, Card } from "antd";
 import { useProduct } from "../context/ProductContext";
 import { Link } from "react-router-dom";
 
-function Category() {
+export default function Category() {
   const [categories] = useCategory();
   const [products] = useProduct();
   const [showProducts, setShowProduct] = useState([]);
@@ -46,4 +46,3 @@ function Category() {
   );
 }
 
-export default Category;

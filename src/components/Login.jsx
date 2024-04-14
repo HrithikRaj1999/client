@@ -6,7 +6,6 @@ import { useAuth } from "../context/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
-  console.log("LogIn page rendered");
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [auth, setAuth] = useAuth();
   function togglePasswordVisibility() {

@@ -1,6 +1,7 @@
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-const Layout = lazy(() => import("../Layout"));
+import Layout from "../Layout";
+
 const Home = lazy(() => import("../Home"));
 const About = lazy(() => import("../About"));
 const Contact = lazy(() => import("../Contact"));
@@ -47,23 +48,33 @@ const appRouter = createBrowserRouter([
         path: "user-dashboard",
         element: <Protected AboutcheckFor={"user"} />,
         children: [
-          { path: "", element: <UserDashboard /> },
-          { path: "profile", element: <Profile /> },
-          { path: "orders", element: <Orders /> },
+          {
+            path: "",
+            element: <UserDashboard />,
+            children: [
+              { path: "profile", element: <Profile /> },
+              { path: "orders", element: <Orders /> },
+            ],
+          },
         ],
       },
       {
         path: "admin-dashboard",
         element: <Protected checkFor={"admin"} />,
         children: [
-          { path: "", element: <AdminDashboard /> },
-          { path: "createCategory", element: <CreateCategory /> },
-          { path: "createProduct", element: <CreateProduct /> },
-          { path: "users", element: <Users /> },
-          { path: "products", element: <Products /> },
-          { path: "update-product/:slug", element: <UpdateProduct /> },
-          { path: "delete-product", element: <DeleteProduct /> },
-          { path: "all-orders", element: <AllOrders /> },
+          {
+            path: "",
+            element: <AdminDashboard />,
+            children: [
+              { path: "createCategory", element: <CreateCategory /> },
+              { path: "createProduct", element: <CreateProduct /> },
+              { path: "users", element: <Users /> },
+              { path: "products", element: <Products /> },
+              { path: "update-product/:slug", element: <UpdateProduct /> },
+              { path: "delete-product", element: <DeleteProduct /> },
+              { path: "all-orders", element: <AllOrders /> },
+            ],
+          },
         ],
       },
       {
