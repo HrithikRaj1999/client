@@ -26,7 +26,7 @@ export const Protected = ({ checkFor }) => {
       if (res.data.ok) {
         setPermitted(true);
       } else {
-        setPath("/login"); //redirect to home
+        setPath("/login"); 
         setPermitted(false);
       }
     }

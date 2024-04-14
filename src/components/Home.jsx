@@ -10,6 +10,7 @@ import Spinner from "./Spinner";
 import { useCart } from "../context/cartContext";
 
 const Home = () => {
+  console.log("Home rendered");
   const [categories] = useCategory();
   const [products, setProducts] = useProduct();
   const [showProducts, setShowProducts] = useState(products);
@@ -25,7 +26,7 @@ const Home = () => {
     if (isChecked) {
       allCheckId.push(id);
     } else {
-      allCheckId = allCheckId.filter((id) => id !== id);
+      allCheckId = allCheckId.filter((myID) => myID !== id);
     }
     setChecked(allCheckId);
   };
